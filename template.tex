@@ -18,7 +18,7 @@
 \date{\today}
 
 \begin{abstract}
-Ultra-high energy cosmic rays (UHECR) can produce relativistic cascades that emit radio-frequency (RF) pulses in the 10-1000 MHz bandwidth via two distinct effects: the geomagnetic effect, and the Askaryan effect.  The geomagnetic effect occurs when the magnetic field of the Earth causes cascade charges to form a transverse current that radiates linearly polarized radiation aligned with the Lorentz force direction.  The Askaryan effect is caused by the net negative charge excess in the cascade that radiates linearly polarized radiation along the Cherenkov cone.  When UHECR cascades enter solid, RF transparent matter at altitudes where the cascade develops, Askaryan radiation can propagate through the solid matter to RF detectors.  The Askaryan Radio Array (ARA) at the South Pole has observed 13 UHECR candidates in precisely this fashion.  Recently, the ARA collaboration published evidence of 13 UHECR candidates.  We present an analytical model that confirms the events are UHECRs.  The model includes the Askaryan effect and the ARA RF channel response.  The coherently summed waveforms (CSWs) from the UHECR candidates match our model with correlation coefficients greater than 0.8, and with minimal fractional power differences.  From the fit between model and data, we extract the original electromagnetic Askaryan pulses.
+Ultra-high energy cosmic rays (UHECR) can produce relativistic cascades that emit radio-frequency (RF) pulses in the 10-1000 MHz bandwidth via two distinct effects: the geomagnetic effect, and the Askaryan effect.  The geomagnetic effect occurs when the magnetic field of the Earth causes cascade charges to form a transverse current that radiates linearly polarized radiation aligned with the Lorentz force direction.  The Askaryan effect is caused by the net negative charge excess in the cascade that radiates linearly polarized radiation along the Cherenkov cone.  When UHECR cascades enter solid, RF transparent matter at altitudes where the cascade develops, Askaryan radiation can propagate through the solid matter to RF detectors.  The Askaryan Radio Array (ARA) at the South Pole has observed 13 UHECR candidates in precisely this fashion.  We present an analytical model that confirms the events are UHECRs.  The model includes the Askaryan effect and the ARA RF channel response.  The coherently summed waveforms (CSWs) from the UHECR candidates match our model with correlation coefficients between 0.69 and 0.86, and with minimal fractional power differences.  From the fit between model and data, we extract the Askaryan pulses.
 \end{abstract}
 
 \keywords{Ultra-high energy neutrino; Askaryan radiation; Mathematical physics}
@@ -28,24 +28,16 @@ Ultra-high energy cosmic rays (UHECR) can produce relativistic cascades that emi
 \section{Introduction}
 \label{sec:int}
 
-\begin{enumerate}
-\item Define UHECRs
-\item Brief summary of radio detection of UHECRs
-\begin{itemize}
-\item Geomagnetic effect
-\item Askaryan effect
-\end{itemize}
-\item Why Askaryan effect can dominate UHECR signals in ARA
-\begin{itemize}
-\item Cite recent paper
-\item When cascade interacts directly with ice
-\item Do models exist for this?  Likely not
-\item Gives us a measurement of the E-field
-\end{itemize}
-\item This paper is organized as follows...
-\end{enumerate}
+UHECR cascades produce RF pulses via the geomagnetic and Askaryan effects, and these pulses have been used to study UHECR properties \cite{huege2017radiowave-6f6,schroder2025radio-14a}.  Detectors with RF channels sensitive to RF pulses from UHECRs add complementary data for event reconstruction to traditional ground-based muon and fluorescence detectors.  UHECR candidate events have now been presented by the Antarctic Ross Ice Shelf Antenna Neutrino Array (ARIANNA), ARA, and Radio Neutrino Observatory Greenland (RNO-G) collaborations \cite{barwick2017radio-c4a,collaboration2025observation-1fa,agarwal2025validating-d6c}.  In ARA, the contribution from the Askaryan effect dominates the observed RF pulses.  Due to the unique location of ARA at the South Pole, the contribution from the Askaryan effect dominates the observed RF pulses.  The South Pole is 2800 meters above sea level, and the thin atmosphere allows UHECR cascades to develop near the altitude of the ARA RF detection channels.  As charged particles from the UHECR cascade enter the ice, the negative excess charge radiates collectively in the 0.1-1 GHz bandwidth.
+
+Within the genre of calculations that predict the properties of RF pulses from UHECRs and ultra-high energy neutrinos (UHE-$\nu$), there are three classes of models.  First, Monte Carlo programs may be used to track each particle and corresponding RF emission within the cascade.  These are known as full Monte Carlo, or \textit{full-MC calculations} \cite{zas1992electromagnetic-a30,10.1016/j.astropartphys.2009.06.005,alameddine2025simulating-06f}.  Second, there are formalisms in which the analytic vector potential corresponding to the radiating charge is convolved with the simulated cascade profile.  These are called \textit{semi-analytic calculations}, and have been used to predict the RF pulses from UHE-$\nu$ interacting in Antarctic and Greenlandic ice \cite{10.1103/physrevd.84.103003,PhysRevD.101.083005,10.1140/epjc/s10052-020-7612-8}.  Finally, there are \textit{fully analytic} calculations that derive the UHECR or UHE-$\nu$ signal from classical electrodynamics.  Examples of such models are Ralston and Buniy (RB2001) \cite{10.1103/physrevd.65.016003}, Hanson and Connolly (HCRB2017) \cite{10.1016/j.astropartphys.2017.03.008}, and Hanson and Hartig (HHH2022) \cite{PhysRevD.105.123019}.
+
+One key advantage of fully analytic Askaryan calculations is that they can be fit to raw data from Askaryan-class detectors.  A prediction for the voltage trace from an RF detection channel is produced by convolving the analytic Askaryan model with an accurate model of the RF channel response.  Analytic voltage traces can be matched to the observed voltage traces by maximizing the correlation coefficient from cross-correlation while tuning parameters like the Askaryan pulse width.  Recently, Hanson and Hartig presented evidence that the HH2022 model, when convolved with an RF channel model, produces analytic voltage traces that match voltage traces from UHE-$\nu$ signals in NuRadioMC \cite{10.1140/epjc/s10052-020-7612-8}.  This technique can be used to reject several years of thermal noise backgrounds in detectors like ARA and RNO-G (HH2026) \cite{hansonnoyearcomplex-ae0}.  Further, once the match between observed and analytic voltage trace is optimized, the Askaryan electromagnetic pulse can be extracted based on the fit parameters.  In this work, we show that the HH2026 procedure matches the voltage traces from 13 UHECR candidate events observed by ARA \cite{collaboration2025observation-1fa}.
+
+The remaining sections of this work are organized as follows: in Sec. \ref{sec:unit}, we define units, functions, operations on functions, and notational conventions.  In Sec. \ref{sec:ara}, we review the necessary portions of the design of the Askaryan Radio Array detector, including the properties of the RF channels.  In Sec. \ref{sec:recon}, we present the match between our theoretical voltage traces and the ARA data.  Finally, in Sec. \ref{sec:conc}, we summarize our results and indicate future directions of the research.
 
 \section{Units, Definitions, and Conventions}
+\label{sec:unit}
 
 \begin{enumerate}
 \item Define $s(t)$, and parameters $E_0$ and $\sigma_t$
@@ -56,6 +48,7 @@ Ultra-high energy cosmic rays (UHECR) can produce relativistic cascades that emi
 \end{enumerate}
 
 \section{The Askaryan Radio Array}
+\label{sec:ara}
 
 \begin{enumerate}
 \item Detector diagram of ARA
@@ -66,6 +59,7 @@ Ultra-high energy cosmic rays (UHECR) can produce relativistic cascades that emi
 \end{enumerate}
 
 \section{Reconstruction Analysis}
+\label{sec:recon}
 
 \begin{enumerate}
 \item Waveform reconstruction
