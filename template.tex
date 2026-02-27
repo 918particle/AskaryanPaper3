@@ -60,7 +60,7 @@ s(t) * r(t) = \int_{-\infty}^{\infty} s(t-\tau) r(\tau) d\tau
 Let $u(t)$ represent the Heaviside step function.  According to Eq. 55 from \cite{hansonnoyearcomplex-ae0}, $s(t) * r(t)$ becomes
 
 \begin{multline}
-s * r = \\ -E_0 R_0 \int_{-\infty}^{\infty} (t-\tau) e^{-\frac{1}{2}\left(\frac{t-\tau}{\sigma_t}\right)^2} \Re\left\lbrace e^{2\pi j f_0 \tau} e^{-2\pi\gamma \tau} \right\rbrace u(\tau) d\tau
+s * r = \\ -E_0 R_0 \int_{-\infty}^{\infty} (t-\tau) e^{-\frac{1}{2}\left(\frac{t-\tau}{\sigma_t}\right)^2} \Re\left\lbrace e^{2\pi j f_0 \tau} e^{-2\pi\gamma \tau} \right\rbrace u(\tau) d\tau \label{eq:sr}
 \end{multline}
 
 The Heaviside step function is introduced to ensure causality.  When the voltage trace is predicted with $s(t) * r(t)$, the result must be matched to the data $d(t)$ from the RF channels.  The RF channels have fixed, measured values for $\gamma$ and $f_0$.  The match between $s(t) * r(t)$ and $d(t)$ is achieved by tuning $\sigma_t$ to maximize the peak value of the cross-correlation, $d(t) \star (s(t) * r(t))$.  Cross-correlation is defined for real signals as:
@@ -69,14 +69,26 @@ The Heaviside step function is introduced to ensure causality.  When the voltage
 f(t) \star g(t) = \int_{-\infty}^{\infty} f(\tau) g(t+\tau) d\tau
 \end{equation}
 
-The algorithm used to compute the cross-correlation in this analysis is \verb+scipy.signal.correlate+. To minimize the 
+The algorithm used to compute the cross-correlation in this analysis is \verb+scipy.signal.correlate+.  To maximize the signal to noise ratio (SNR) of UHECR data, traces from multiple channels are combined to form the \textit{coherently summed waveform} (CSW).  The CSW is computed from a set of traces using the following algorithm: (1) select a reference trace, (2) cross-correlate with the next trace in the set until the cross-correlation is maximized, (3) add the two traces to form a new reference, and (4) repeate until each trace in the set is added coherently to the reference.  The CSW is normalized so that the inner product of the trace is one.  The theoretical trace is normalized in the same way.  Normalized traces lose the voltage units, but retain nanoseconds for the unit of time.
 
-\begin{enumerate}
-\item Define CSW
-\end{enumerate}
+The solution to Eq. \ref{eq:sr} was shown in Eq. 61 of \cite{hansonnoyearcomplex-ae0}.  Let $j = \sqrt{-1}$, $x = t/(\sqrt{2}\sigma_t)$, $z = (2\pi j f_0 - 2\pi\gamma)\sqrt{2}\sigma_t$, $w(z)$ be the Faddeeva function of a complex variable, and
+
+\begin{equation}
+q = -j\left(x + \frac{z}{2}\right) \\
+\end{equation}
+
+The solution to Eq. \ref{eq:sr} is
+
+\begin{multline}
+s * r = -\sqrt{\pi}R_0 E_0 \sigma_t^2 \\ \left(xe^{-x^2} \Re\left\lbrace w(q) \right\rbrace - \frac{1}{2}e^{-x^2} \Re\left\lbrace -j \frac{d w(q)}{dq} \right\rbrace \right) \label{eq:sr2}
+\end{multline}
+
+A Python3 code was given in \cite{hansonnoyearcomplex-ae0} to compute Eq. \ref{eq:sr2}.  Note that $q$ depends on $x$, which depends on $t$.  The $s * r$ oscillates at a frequency $\approx f_0$ because the Faddeeva function oscillates with a complex argument.  The envelope of $s * r$ rises and falls with the width of $s(t)$, and due to the exponential decay of $r(t)$.
 
 \section{The Askaryan Radio Array}
 \label{sec:ara}
+
+The Askaryan Radio Array consists of five stations deployed near the South Pole designed to detect UHE-$\nu$ and UHECR events via the Askaryan effect in Antarctic ice \cite{allison2022lowthreshold-795,10.1103/physrevd.102.043021,allison2012design-cd3,testbed}.  The A5 station utilizes a dedicated RF trigger on the CSW output of a phased array of seven vertically polarized dipoles.  The RF phased array trigger boosts the SNR of UHE-$\nu$ and UHECR events, and allows for increased sensitivity to rare fluxes of these particles \cite{avva2017development-713}.
 
 \begin{enumerate}
 \item Detector diagram of ARA
