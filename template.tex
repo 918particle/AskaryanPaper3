@@ -88,12 +88,23 @@ A Python3 code was given in \cite{hansonnoyearcomplex-ae0} to compute Eq. \ref{e
 \section{The Askaryan Radio Array}
 \label{sec:ara}
 
-The Askaryan Radio Array consists of five stations deployed near the South Pole designed to detect UHE-$\nu$ and UHECR events via the Askaryan effect in Antarctic ice \cite{allison2022lowthreshold-795,10.1103/physrevd.102.043021,allison2012design-cd3,testbed}.  The A5 station utilizes a dedicated RF trigger on the CSW output of a phased array of seven vertically polarized dipoles.  The RF phased array trigger boosts the SNR of UHE-$\nu$ and UHECR events, and allows for increased sensitivity to rare fluxes of these particles \cite{avva2017development-713}.
+The Askaryan Radio Array consists of five stations deployed near the South Pole designed to detect UHE-$\nu$ and UHECR events via the Askaryan effect in Antarctic ice \cite{allison2022lowthreshold-795,10.1103/physrevd.102.043021,allison2012design-cd3,testbed}.  The A5 station utilizes a dedicated RF trigger on the CSW output of a phased array of seven vertically polarized dipoles.  The RF phased array trigger boosts the SNR of UHE-$\nu$ and UHECR events, and allows for increased sensitivity to rare fluxes of these particles \cite{avva2017development-713}.  The ARA UHECR candidates used in this analysis were recorded on the A5 station via the RF phased array trigger.  A schematic of the A5 detector is shown in Fig. \ref{fig:ara}, and the A5 detector parameters are summarized in \cite{allison2022lowthreshold-795}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.49\textwidth]{figures/ara5.png}
+\caption{\label{fig:ara} A general schematic of the A5 station within the Askaryan Radio Array (ARA) detector.  The RF phased array trigger string is in the center, surrounded by four reconstruction strings.  Strings have both HPol and VPol RF channels.  Figure adopted from \cite{allison2022lowthreshold-795}.}
+\end{figure}
+
+The UHECR candidate events were detected with the RF phased array trigger in A5.  The proposed event geometry is shown in Fig. \ref{fig:ara2}.  The UHECR candidates would normally create both geomagnetic and Askaryan radiation, and geomagnetic radiation usually dominates the total electromagnetic pulse when the detector lies far beneath the cascade \cite{barwick2017radio-c4a}.  The same claim is made in recent UHECR candidate detections via RNO-G \cite{agarwal2025validating-d6c}, though RNO-G and ARA are situated at high altitudes.  At the South Pole, however, geomagnetic radiation is expected to be horizontally polarized due to the vertical orientation of the local magnetic field.  The vertically polarized (VPol) RF channels are therefore less sensitive to geomagnetic radiation.  Data from the horizontally polarized (HPol) RF channels is not included in our analysis.  For the VPol phased array channels, we will show in Sec. \ref{sec:recon} that geomagnetic radiation is not necessary to explain the observed voltage traces.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.49\textwidth]{figures/ara5_2.png}
+\caption{\label{fig:ara2} The proposed UHECR candidate event geometry consists of a high-energy cascade interacting along the shower axis that enters the ice and creates Askaryan radiation.  Figure adopted from \cite{allison2022lowthreshold-795}.  Figure adopted from \cite{collaboration2025observation-1fa}.}
+\end{figure}
 
 \begin{enumerate}
-\item Detector diagram of ARA
-\item Event diagram of UHECR interaction
-\item Cite recent detection of UHECR events
 \item Calibration of $f_0$ from data itself
 \item Calibration of $\gamma$ from data itself
 \end{enumerate}
