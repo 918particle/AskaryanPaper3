@@ -107,9 +107,9 @@ The UHECR candidate events were detected with the RF phased array trigger in A5.
 \section{Reconstruction Analysis}
 \label{sec:recon}
 
-Our cross-correlation analysis between Eq. \ref{eq:sr2} and the CSWs from the UHECR candidates from A5 begins by making two assumptions.  The first is that the $f_0$ and $\gamma$ parameters are identical across the A5 phased array trigger string.  While each channel may have \textit{identical} parameters, that is the intent of the design shown in Fig. \ref{fig:ara}.  The second assumption we make is that calibration pulse events resemble Askaryan pulses.  Though that is the purpose of the calibration pulser system design in ARA \cite{allison2012design-cd3,allison2022lowthreshold-795}, the original pulser voltage is transmitted through an ARA dipole, propagates to the A5 trigger string, and is converted to the observed trace.  None of these effects, however, should alter $f_0$ or $\gamma$, as they are properties of the RF antennas themselves.
+Our cross-correlation analysis between Eq. \ref{eq:sr2} and the CSWs from the UHECR candidates from A5 begins by making two assumptions.  The first is that the $f_0$ and $\gamma$ parameters are identical across the A5 phased array trigger string.  While each channel may not have \textit{identical} parameters, that is the intent of the design shown in Fig. \ref{fig:ara}.  The second assumption we make is that calibration pulse events resemble Askaryan pulses.  Though that is the purpose of the calibration pulser system design in ARA \cite{allison2012design-cd3,allison2022lowthreshold-795}, the original pulser voltage is transmitted through an ARA dipole, propagates to the A5 trigger string, and is converted to the observed trace.  None of these effects, however, should alter $f_0$ or $\gamma$, as they are properties of the RF antennas themselves.
 
-Given these assumptions, we measured $f_0$ and $\gamma$ for the A5 trigger string using a data set of events triggered by the A5 calibration pulser.  Given that the lower edge of the RF channels is of order $\approx 0.1$ GHz, and that calibration pulser events are of order $\lesssim 100$ ns wide, we hypothesized that $f_0 \approx 0.1$ GHz and $\gamma \approx 0.01$ GHz.  Given these initial guesses, we calculated the CSW for each event, and maximized the correlation coefficient for each CSW, $\rho$, by tuning $\sigma_t$.  We scanned the $[f_0,\gamma]$ parameter space until the global average $\rho_{\rm ave}$ was maximized.  We found that $\rho_{\rm ave} = 0.79\pm 0.02$ was maximized when $f_0 = 0.19\pm 0.01$ GHz, and $\gamma = 0.020\pm 0.001$ GHz.  Though $\sigma_t$ was allowed to vary for each CSW, the maximum $\rho$ for each CSW was reached when $\sigma_t = 0.6\pm 0.1$.  This is encouraging, since the calibration pulser properties tend to remain constant over time.  These results are summarized in Tab. \ref{tab:cal}.
+Given these assumptions, we measured $f_0$ and $\gamma$ for the A5 trigger string using a data set of events triggered by the A5 calibration pulser.  Given that the lower edge of the RF channels is of order $\approx 0.1$ GHz, and that calibration pulser events are of order $\lesssim 100$ ns wide, we hypothesized that $f_0 \approx 0.1$ GHz and $\gamma \approx 0.01$ GHz.  Given these initial guesses, we calculated the CSW for each event, and maximized the correlation coefficient for each CSW, $\rho$, by tuning $\sigma_t$.  We scanned the $[f_0,\gamma]$ parameter space until the global average $\rho_{\rm ave}$ was maximized.  We found that $\rho_{\rm ave} = 0.79\pm 0.02$ was maximized when $f_0 = 0.19\pm 0.01$ GHz, and $\gamma = 0.020\pm 0.001$ GHz.  Though $\sigma_t$ was allowed to vary for each CSW, the maximum $\rho$ was reached when $\sigma_t = 0.6\pm 0.1$ for each CSW individually.  This is not a coincidence, but encouraging, for the calibration pulser properties tend to remain constant over time.  These results are summarized in Tab. \ref{tab:cal}.
 
 \begin{table}
 \centering
@@ -130,7 +130,7 @@ Given these assumptions, we measured $f_0$ and $\gamma$ for the A5 trigger strin
 \caption{\label{tab:cal} Results for $f_0$ and $\gamma$ from calibration pulser data.}
 \end{table}
 
-After measuring $f_0$ and $\gamma$, we proceeded to the analysis of the UHECR candidate voltage traces.  We computed the CSW for each UHECR candidate event, and maximized $\rho$ by only tuning $\sigma_t$, given our results for $f_0$ and $\gamma$ in Tab. \ref{tab:cal}.  The CSWs were found in most cases to contain a reflected pulse.  In this context, a reflected pulse is a delayed copy of the primary pulse with a smaller amplitude.  For each UHECR candidate CSW, we performed a fit assuming two copies of our model.  Let the primary pulse width be $\sigma_{t,1}$ and the reflection with $\sigma_{t,2}$.  Initially, we set the amplitude of the reflection to 10\% relative to the primary pulse.  Let $\Delta t$ be the delay between the primary and reflected pulses.  We scanned over the $[\sigma_{\rm t,1},\sigma_{\rm t,2},\Delta t]$ parameter space to maximize $\rho$ for the CSW.  Having obtained the best-fit results for $[\sigma_{\rm t,1},\sigma_{\rm t,2},\Delta t]$, we then tuned the relative amplitude of the reflection to minimize the power difference $\Delta P$ between CSW and model.  The power difference between waveform data samples $d_i$ and the model waveform samples $m_i$ is defined like
+After measuring $f_0$ and $\gamma$, we proceeded to analyze the UHECR candidate voltage traces.  We computed the CSW for each UHECR candidate event, and maximized $\rho$ by only tuning $\sigma_t$, given our results for $f_0$ and $\gamma$ in Tab. \ref{tab:cal}.  The CSWs were found in most cases to contain a reflected pulse.  In this context, a reflected pulse is a delayed copy of the primary pulse with a smaller amplitude.  For each UHECR candidate CSW, we performed a fit assuming two copies of our model.  Let the primary pulse width be $\sigma_{t,1}$, the reflection width be $\sigma_{t,2}$, and let $\Delta t$ be the delay between the pulses.  We scanned over the $[\sigma_{\rm t,1},\sigma_{\rm t,2},\Delta t]$ parameter space to maximize $\rho$ for the CSW.  Initially, we set the amplitude of the reflection to 10\% relative to the primary pulse.  After obtaining the best-fit results for $[\sigma_{\rm t,1},\sigma_{\rm t,2},\Delta t]$, we then tuned the relative amplitude of the reflection to minimize the power difference $\Delta P$ between CSW and model.  We define the $\Delta P$ between waveform data samples $d_i$ and the model waveform samples $m_i$ like
 
 \begin{equation}
 \Delta P = \sum_i (d_i - m_i)^2
@@ -139,7 +139,7 @@ After measuring $f_0$ and $\gamma$, we proceeded to the analysis of the UHECR ca
 \noindent
 The definition is loosely based on the power of an AC voltage, like $P = V^2/R$.  In our best fits for CSWs, we quote the reflection amplitude that minimizes $\Delta P$.
 
-The best-fit analytic traces and UHECR candidate CSWs are shown in Figs. \ref{fig:1}-\ref{fig:4}, and the numerical results for $\sigma_{\rm t,1}$, $\sigma_{\rm t,2}$, $\Delta t$, relative amplitude, and $\rho$ are shown in Tab. \ref{tab:results}.
+The best-fit analytic traces and UHECR candidate CSWs are shown in Figs. \ref{fig:1}-\ref{fig:4}, and the numerical results for $\sigma_{\rm t,1}$, $\sigma_{\rm t,2}$, $\Delta t$, relative amplitude, and $\rho$ are shown in Tab. \ref{tab:results}.  The same set of results, with relative amplitude set to zero, are shown in Tab. \ref{tab:results2}.
 
 \begin{figure*}
 \centering
@@ -195,6 +195,29 @@ The best-fit analytic traces and UHECR candidate CSWs are shown in Figs. \ref{fi
 \hline
 \end{tabular}
 \caption{\label{tab:results} Results for the primary pulse width $\sigma_{\rm t,1}$, reflected pulse width $\sigma_{\rm t,2}$, delay between primary and reflected pulses $\Delta t$, reflected pulse amplitude (relative to primary), and correlation coefficient $\rho$.}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{| c | c | c |}
+\hline
+\textbf{ID} & \textbf{$\sigma_{t,1}$ (ns)} & \textbf{$\rho$} \\
+1915-26288 & 0.5 & 0.83 \\
+1957-13330 & 0.5 & 0.66 \\
+2171-31805 & 0.5 & 0.775 \\
+2250-20189 & & \\
+2352-85489 & & \\
+2375-17342 & & \\
+2529-09767 & & \\
+2716-58611 & & \\
+2782-00106 & & \\
+2955-47449 & & \\
+2961-98361 & & \\
+2978-29412 & & \\
+3352-89556 & & \\
+\hline
+\end{tabular}
+\caption{\label{tab:results2} Results }
 \end{table}
 
 \section{Conclusion}
