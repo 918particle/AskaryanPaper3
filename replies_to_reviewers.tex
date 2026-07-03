@@ -1,11 +1,5 @@
 \documentclass[amsmath,amssymb,aps,prd,10pt,twocolumn,showkeys]{revtex4}
-\usepackage{graphicx}
-\usepackage{mathtools}
-\usepackage{verbatim}
-\DeclareMathOperator\erfc{erfc}
-\DeclareMathOperator\erf{erf}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\snr}{SNR}
+\usepackage{amsmath}
 \begin{document}
 
 \title{Complex Analysis of Askaryan Radiation: UHECR Reconstruction with Askaryan Radio Array}
@@ -48,7 +42,7 @@ The manuscript presents an analytical model that can describe Askaryan radiation
 
 \item In Figure 6 and other similar plots, it may help to zoom in further (eg between 75 and 175 ns) / use different color scheme, to see the match between model and CR event better. \\ 
 
-\textit{We felt it was important to fix the time-axis for the zoom to 200 ns consistently.  At a sampling rate of 1.5 GHz, this means 25 percent of the plot is about equal to the waveform width.  This does two things: it leaves room for the inset, and it shows the detailed oscillations of the model and data.  The inset provides transparency to skeptical readers.  If we show the whole observed waveform, the reader cannot assume we are hiding something.}
+\textit{We felt it was important to fix the time-axis for the zoom to 200 ns consistently.  At a sampling rate of 1.5 GHz, this means 25 percent of the plot is about equal to the waveform width.  This does two things: it leaves room for the inset, and it shows the detailed oscillations of the model and data.  The inset provides transparency to skeptical readers.  If we show the whole observed waveform, the reader knows we are not hiding something.}
 
 \item In section III, when it says ``... and geomagnetic radiation usually dominates the total electromagnetic pulse when the detector lies far beneath the cascade''.  Could you please point me to which text/plot in reference 3 and 5 is the referred from? \\
 
@@ -59,8 +53,6 @@ The manuscript presents an analytical model that can describe Askaryan radiation
 \textit{We did not yet have access to the processed HPol data at the time of writing.  The corresponding author is an ARA collaboration member, and the processed VPol data were obtained through a private communication after it was published in ref. [4].  Since the HPol RF channel data were not included ref. [4], we should not speculate on it.}
 
 \end{enumerate}
-
-----------------------------------------------------------------------------------------------------------------
 
 \section{Responses for Report of Referee B -- DQ14522/Hanson}
 
@@ -76,43 +68,33 @@ This paper looks to be in an important corroboration of the model, but I do sugg
 
 \item It may help the reader if the time region of the  ``reflected pulse'' is identified in the waveforms shown in one of the figures in figures 3-6. Also, what is responsible for generating the reflected pulse in the ARA signals? I think the authors did a very nice job of showing that the reflected pulses do not affect the results significantly.\\
 
-\textit{We chose to leave the plots unchanged, since the $\Delta t$ parameter (Tab. 2) can be used in Figs. 3-6 to identify the reflection region. Reviewer A also asked about the cause of the reflections, and we wrote:  ``Reflections like these in the South polar firn with $n=1.34$ yields a one-way distance of 2-3 meters.  Slight impedance mismatches between RF connectors, cables, and other RF antennas are common causes of such reflections.  The fact that our $\sigma_{t,2}$ values are larger than our $\sigma_{t,1}$ values suggests a low-frequency reflector.  One candidate is an RF antenna that is not the main antenna in event.  However, this is speculative, so we chose not to interpret the reflections ... In summary, we have added two sentences in the final paragraph of Sec. IV to address our decision not to interpret the reflections, and to note that they are common in RF systems.''}
+\textit{We chose to leave the plots unchanged, since the $\Delta t$ parameter (Tab. 2) can be used in Figs. 3-6 to identify the reflection region. Reviewer A also asked about the cause of the reflections, and we wrote:  ``Reflections like these in the South polar firn with $n=1.34$ yields a one-way distance of 2-3 meters.  Slight impedance mismatches between RF connectors, cables, and other RF antennas are common causes of such reflections.  The fact that our $\sigma_{t,2}$ values are larger than our $\sigma_{t,1}$ values suggests a low-frequency reflector.  One candidate is an RF antenna that is not the main antenna in event.  However, this is speculative, so we chose not to interpret the reflections ...'' We have added two sentences in the final paragraph of Sec. IV to address our decision not to interpret the reflections, and to note that they are common in RF systems.''}
 
 \item The paragraph beginning “Several points…” on page 3, argues that pulser calibration events produce a reliable value for f0, but the authors should elaborate on why the calibration events should produce a reliable estimate of gamma, the decay time of the antenna response.  Why doesn’t the double convolution from a pulser signal produce a value for gamma in this analysis that is too large?  Also, the quoted error on the check is larger than the mean, so the authors should argue why this is a meaningful check. \\
 
-\textit{As the reviewer notes, we find $f_0$ after analyzing pulses that pass through an RF dipole transmitter, ice, then an RF dipole receiver.  The resonance frequency $f_0$ of a dipole cannot change, no matter how many are in the RF change, so $f_0$ should be measured like a constant.  However, this is also true of $\gamma$.  The reviewer rightly identifies the application of a double convolution to model this situation.  However, the convolution of two decaying exponentials with the same decay rate produces a third exponential with the same decay rate, multiplied by time.  Thus, $\gamma$ is measured correctly.  Further, our result for the error estimate of $\gamma$ from calibration pulse events is not larger than the mean.  To clarify these points, we have modified the first paragraph in Sec. IV.  Regarding the paragraph beginning with ``Several points,'' we also have noted that fitting $f_0$ and $\gamma$ as free parameters against the UHECR data allows the results for $f_0$ and $\gamma$ to be affected by $\sigma_t$ (which does not have to be constant) and reflected pulses.  These effects are not present in the calibration pulser events.}
+\textit{As the reviewer notes, we find $f_0$ after analyzing pulses that pass through an RF dipole transmitter, ice, then an RF dipole receiver.  The resonance frequency $f_0$ of a dipole cannot change, no matter how many are in the RF change, so $f_0$ should be measured like a constant.  However, this is also true of $\gamma$.  The reviewer rightly identifies the application of a double convolution to model this situation.  However, the convolution of two decaying exponentials with the same decay rate produces a function proportional to time multiplied by an exponential with the same decay rate.  Thus, $\gamma$ is measured correctly.  Also, when we measure $\gamma$ using only calibration pulse events, we do not find a mean smaller than the error, but a fractional error of 50\%.  To clarify these points, we have modified the first paragraph in Sec. IV.  Regarding the paragraph beginning with ``Several points,'' we also have noted that fitting $f_0$ and $\gamma$ as free parameters against the UHECR data allows the results for $f_0$ and $\gamma$ to be affected by $\sigma_t$ (which does not have to be constant) and reflected pulses.  Despite these effects, the results are consistent with calibration pulser data.}
 
 \item The ARA events are different from what is expected from a neutrino interaction in the ice.  The ARA events are generated by the core of a cosmic ray shower that strikes the surface of the snow.  Therefore, the electron distribution is spread over much larger radius (the Moliere radius in air is larger than in ice),  which effects the bandwidth of frequencies that coherently add, and the shower enters the snow surface and encounters a varying index of refraction through the remainder of the shower development.   Both of these effects will alter the time and angular emission dependence  of the Askaryan electric field.  The authors should comment on these differences between the idealized model of neutrino emission assumed in their earlier papers and emission in this case from air shower cores. Given the differences, might the reader expect that the author’s model should provide even better results for neutrino emission within the ice?\\
 
-\textit{Yes, it is a very good inference that our model would work even better with an in-ice neutrino induced Askaryan cascade. An in-ice neutrino induced Askaryan cascade would be cleaner from noise than a UHCR airshower for the reasons listed by you. Our model assumes a consistent index of refraction and does not account for the excess radiation around the air-shower core. A paragraph added to our conclusion section has been added in agreement.}
-
-
+\textit{This is an excellent point that we had not fully considered.  In this form of our model, $\sigma_t$ is fit as a free parameter.  In our earlier papers (J.C. Hanson and A. Connolly (2017), and J. C. Hanson and R. Hartig (2022)), we derived the relationship between the instantaneous charge distribution (ICD) form factor, the Moli\`{e}re radius, and the cutoff frequency.  In those papers, we built the model with the assumption that the density and index of refraction are constants.  Changing the underlying medium from solid ice to snow changes the ICD, which in turn changes the cutoff frequency.  The new cutoff frequency, in turn, affects $\sigma_t$.  The parameter $\sigma_t$ can be linked to the viewing angle, $\Delta \theta$, in a similar way.  Thus, our model should still fit, with a slightly different $\sigma_t$ value compared to a UHE-$\nu$ from deep ice.  Since the UHECR shower cores only over $\mathcal{O}(10)$ meters in the snow, we can treat the snow density as a constant.  If this were not the case, our model would require an evolving $\sigma_t$, which is not required by the fit to the data.  Regarding a potential improvement of the fit between our model and data from a UHE-$\nu$ from within the ice, there are two considerations.  First, the fit could improve because the entire cascade begins and ends in the ice, rather than an unknown portion of it in our current case.  Second, the fit could worsen because our model does not account for frequency-dependent RF attenuation in ice.  The latter should be a minor effect, however, given the analysis in Sec. 5 and Figs. 12 and 13 of Barwick et. al., Astroparticle Physics (2015).  These thoughts have been translated into the final paragraph in Sec. IV.}
 
 \item Fig 3:  what is the purpose for a smaller insert graphic?  What additional information is revealed?  Also, the figure caption should explain the insert graph, instead of letting the reader try to figure it out.\\
 
-\textit{The smaller graphic is to display the entire wave form for the sake of transparency to any skeptical critics of the model. A sentence before Fig 3. has been added to create a small break between sections 4 and 5}
-
-
+\textit{Reviewer A asked a similar question, and we wrote ``We felt it was important to fix the time-axis for the zoom to 200 ns consistently.  At a sampling rate of 1.5 GHz, this means 25 percent of the plot is about equal to the waveform width.  This does two things: it leaves room for the inset, and it shows the detailed oscillations of the model and data.  The inset provides transparency to skeptical readers.  If we show the whole observed waveform, the reader knows we are not hiding something.''  We have added a sentence in the figure caption to help the reader.  There is also a similar sentence now in the text of Sec. IV.}
 
 \item Fig. 3:  The authors should explicitly state in the figure caption that the model amplitude is relative voltage amplitude from equation 7, and the ARA event amplitude is relative voltage amplitude.  (to avoid possible confusion with the electric field). \\
 
-\textit{Agreed, this is now appended to the aforementioned sentence to clarify the meaning of the inserts and vertical-axis.}
+\textit{This information is now in all captions of voltage traces.}
 
+\item In the conclusion, the authors estimate c=0.3/1.78 m/ns, but the index of refraction n=1.78 is value for ice at depths below $\approx$ 100 m.  The signals from cosmic ray cores are generated near the surface, where index of refraction is much smaller, closer to n=1.4, and then increases with depth.  Was the estimate in the paper a typo?  If not, the authors should explain the estimate in greater detail.  There is a similar issue with the estimate for the Cherenkov angle.  My last comment is that the parameter $a$ is in units of meters, but since the snow density near the surface is less than half the ice density (0.92 g/cm3) and varies, it will help the reader to explain if the estimate of a was for ice density, or the snow near the surface?  Usually, lengths in cascade development is parameterized in terms of kg/m$^2$ to account for varying densities of materials. \\
 
-
-\item In the conclusion, the authors estimate c=0.3/1.78 m/ns, but the index of refraction n=1.78 is value  for ice at depths below ~100m.  The signals from cosmic ray cores are generated near the surface, where index of refraction is much smaller, closer to n=1.4,  and then increases with depth.  Was the estimate in the paper a typo?  If not, the authors should explain the estimate in greater detail.   There is a similar issue with the estimate for the Cherenkov angle.   My last comment is that the parameter a is in units of meters, but since the snow density near the surface is less than half the ice density (0.92 g/cm3) and varies, it will help the reader
-to explain if the estimate of a was for ice density, or the snow near the surface?  Usually, lengths in cascade development is parameterized in terms of kg/m$^2$ to account for varying densities of materials.
-
-
+\textit{This was a mistake, and the calculation has been corrected.  We use $n=1.4$, and the result is $\Delta \theta =$ 2.1 degrees, which still agrees with the results from ARA.  From our previous papers, the parameter $a$ varies with the square root of the logarithm of the cascade energy, so shifting the medium density in Monte Carlo cascades to produce a new $a$-value would have only a minor effect on $a$.  In our previous papers, the $a$ parameter is in meters, not kg/m$^2$ as with shower depths.}
 
 \item Typo: Measrure on page 7 \\
 
-\textit{Spelling Corrected}
+\textit{This has been corrected.}
 
-\item Overall assessment of paper.  This paper provides the first experimental proof that Askaryan radio pulses generated by air shower cores developing within the first 10m of the snow surface are described by the analytic model developed in earlier papers, and 
-therefore, an important paper to publish. \\
-
-
+\item Overall assessment of paper.  This paper provides the first experimental proof that Askaryan radio pulses generated by air shower cores developing within the first 10m of the snow surface are described by the analytic model developed in earlier papers, and  therefore, an important paper to publish.
 
 \end{enumerate}
 
