@@ -9,7 +9,7 @@
 \DeclareMathOperator{\snr}{SNR}
 \begin{document}
 
-\title{Complex Analysis of Askaryan Radiation: UHECR Reconstruction with Askaryan Radio Array}
+\title{Complex Analysis of Askaryan Radiation: Fully analytic reconstruction of UHECR}
 
 \author{Jordan C. Hanson}
 \email{jhanson2@whittier.edu}
@@ -95,21 +95,27 @@ A Python3 code was given in \cite{hansonnoyearcomplex-ae0} to compute Eq. \ref{e
 
 The Askaryan Radio Array consists of five stations deployed near the South Pole designed to detect UHE-$\nu$ and UHECR events via the Askaryan effect in Antarctic ice \cite{allison2022lowthreshold-795,10.1103/physrevd.102.043021,allison2012design-cd3,testbed}.  Station A5 utilizes a dedicated RF trigger on the CSW output of a phased array of seven vertically polarized dipoles.  The RF phased array trigger boosts the SNR of UHE-$\nu$ and UHECR events, and allows for increased sensitivity to rare fluxes of these particles \cite{avva2017development-713}.  The ARA UHECR candidates used in this analysis were recorded on station A5 via the RF phased array trigger.  A schematic of the A5 detector is shown in Fig. \ref{fig:ara}, and the A5 detector is summarized in \cite{allison2022lowthreshold-795}.
 
+The 13 UHECR event candidates which we work with were first used and described in physical review letters \cite{xwqy-yzrk}. Gratefully, the raw data was released to us for this work after a communication with the ARA collaboration. Since then, the data has been released to the public and can be found online here \newline \newline https://doi.org/10.5281/zenodo.19578836
+
 \begin{figure}
 \centering
 \includegraphics[width=0.49\textwidth]{ara5.png}
 \caption{\label{fig:ara} A general schematic of station A5 within the Askaryan Radio Array (ARA) detector.  The RF phased array trigger string is in the center, surrounded by four reconstruction strings.  Strings have both HPol and VPol RF channels.  Figure adopted from \cite{allison2022lowthreshold-795}.}
 \end{figure}
 
-The UHECR candidate events were detected with the RF phased array trigger in A5.  The proposed event geometry is shown in Fig. \ref{fig:ara2}.  Typically UHECR candidates create both geomagnetic and Askaryan radiation, with geomagnetic radiation dominating if the detector lies far beneath the cascade and propagating at a latitude where the air shower axis forms a large angle with the local magnetic field. For example, the ARIANNA collaboration measured UHECR events, at a latitude of 78.7 degrees S and at an altitude of 576 m above sea level, that were geomagnetically dominated \cite{barwick2017radio-c4a,10.3189/2015jog14j214}.  Similar results have been shared by the RNO-G collaboration \cite{agarwal2025validating-d6c}.  
-\newpage 
-Although RNO-G and ARA are both situated at high altitudes, their respective latitudes of 72 degrees N and 90 degrees S play a key role in observable data.  For contrast, at 90 degrees S geomagnetic radiation is expected to be horizontally polarized due to the vertical orientation of the local magnetic field.  The vertically polarized (VPol) RF channels are therefore less sensitive to geomagnetic radiation.  Data from the horizontally polarized (HPol) RF channels has not been published, so it is not included in our analysis.  For the VPol phased array channels, we will show in Sec. \ref{sec:recon} that geomagnetic radiation is not necessary to explain the observed voltage traces.
-
 \begin{figure}
 \centering
 \includegraphics[width=0.49\textwidth]{ara5_2.png}
 \caption{\label{fig:ara2} The proposed UHECR candidate event geometry consists of a high-energy cascade interacting along the shower axis that enters the ice and creates Askaryan radiation.  Figure adopted from \cite{xwqy-yzrk}.}
 \end{figure}
+
+\newpage
+
+The UHECR candidate events were detected with the RF phased array trigger in A5.  The proposed event geometry is shown in Fig. \ref{fig:ara2}.  Typically UHECR candidates create both geomagnetic and Askaryan radiation, with geomagnetic radiation dominating if the detector lies far beneath the cascade and propagating at a latitude where the air shower axis forms a large angle with the local magnetic field. For example, the ARIANNA collaboration measured UHECR events, at a latitude of 78.7 degrees S and at an altitude of 576 m above sea level, that were geomagnetically dominated \cite{barwick2017radio-c4a,10.3189/2015jog14j214}.  Similar results have been shared by the RNO-G collaboration \cite{agarwal2025validating-d6c}.  
+
+Although RNO-G and ARA are both situated at high altitudes, their respective latitudes of 72 degrees N and 90 degrees S play a key role in observable data.  For contrast, at 90 degrees S geomagnetic radiation is expected to be horizontally polarized due to the vertical orientation of the local magnetic field.  The vertically polarized (VPol) RF channels are therefore less sensitive to geomagnetic radiation.  Data from the horizontally polarized (HPol) RF channels has not been published, so it is not included in our analysis.  For the VPol phased array channels, we will show in Sec. \ref{sec:recon} that geomagnetic radiation is not necessary to explain the observed voltage traces.
+
+
 
 \newpage
 
@@ -201,11 +207,16 @@ The best-fit analytic traces and UHECR candidate CSWs are shown in Figs. \ref{fi
 
 The results for $\sigma_{\rm t,1}$ in Tab. \ref{tab:results2} are similar to those in Tab. \ref{tab:results}.  For all cases the pulse width is within 0.1 ns of the result from Tab. \ref{tab:results} yielding correlation coefficients that are smaller by 1.25\% to 12\% relative to the results in Tab. \ref{tab:results}.  Thus, the reflected pulse in the model improves the fit, but not to an extent that changes the interpretation of the event as a UHECR.  For example, the authors of HH2026 \cite{hansonnoyearcomplex-ae0} showed that UHE-$\nu$ events from an ARA-like detector would produce a distribution of correlation coefficients peaked at $\rho \approx 0.9$ but spread between 0.4 and 1.0.  If adding or removing the reflected pulse from the fit reduced $\rho$ below 0.4 this would have warranted a shift in interpretation. Because this is not the case, we chose not to interpret the origin of the reflections. Note that reflections are common when receiving antenna are located near other antennas, metal conductors, or RF cables.
 
+\newpage 
+
+For the sake of transparency, on the following pages, inserts are included in the plots of figures 3-6 which depict the full, completely zoomed out graphs. 
+
+On the vertical axis we demonstrate a normalized voltage amplitude, from the CSW data as well as the computed voltage amplitude from Eq.7 of our model. 
+Recall that $E_0$ is the voltage amplitude in V m$^{-1}$ ns$^{-1}$ of an Askaryan signal propagating in ice, and that we are measuring the time domain in nanoseconds.
 
 
 \begin{figure*}
-\centering
-For transparency, inserts in each figure are the zoomed out plots of the CSW's relative voltage amplitude and Eq.7 model.
+\centering\
 \includegraphics[width=0.49\textwidth]{1915_26288.pdf}
 \includegraphics[width=0.49\textwidth]{1957_13330.pdf}
 \includegraphics[width=0.49\textwidth]{2171_31805.pdf}
@@ -267,7 +278,7 @@ In Eq. \ref{eq:uncert}, $a$ is a measure of the longitudinal length of the in-ic
 
 There are some logical steps for this work in the future. First, a separate fit for $\Delta\theta$ would allow the measurement of the $a$ parameter, which is tied to the UHECR cascade energy. This parameter $\Delta\theta$ may be constrained by using the spectral cutoff of the voltage traces, which are inversely correlated to $\Delta\theta$ \cite{10.1016/j.astropartphys.2017.03.008}.  Second, it is interesting to note that our model for $s(t)$ in Eq. \ref{eq:s} corresponds to the \textit{off-cone} ($\theta\neq \theta_{\rm C}$) result from HH2022 \cite{PhysRevD.105.123019}.  The authors of \cite{PhysRevD.105.123019} also include an \textit{on-cone} version of $s(t)$ that is used when $\Delta\theta = 0$, and can be used as $\Delta\theta\to 0$.  The on-cone model could provide a better fit for events with $\Delta\theta \lesssim 1$ degree \cite{PhysRevD.105.123019}.  
 
-Finally, it is our hope that one day our model will be used to fit UHE-$\nu$ candidates, in addition to UHECR candidates. We strongly believe that our model's correlation coefficient will increase scanning a UHE-$\nu$ candidate event as compared to a UHCR event because our model treats incoherent radiation from an air-shower's cascade as negligible, resulting in noise. Also to note is that when fine tuning the parameter space $[f_0,\gamma,\sigma_{\rm t,1},\sigma_{\rm t,2},\Delta t]$ in Sec. \ref{sec:recon} the code found in HH2026 \cite{hansonnoyearcomplex-ae0} used to maximize $\rho$ is capable of computing through individual RF channel responses not just the CSW. As such it is possible to inference where the Askaryan radiation was most coherent relative to the detector by mapping the path of $\rho$ from greatest to least, if one knows where the RF channels are located and how they are numbered in raw data files. This would be a key indicator for a UHE-$\nu$ if the radiation is most coherent in the most sub-surface RF channels, unlike for our air-shower induced events. \\
+Finally, it is our hope that one day our model will be used to fit UHE-$\nu$ candidates, in addition to UHECR candidates. We strongly believe that our model's correlation coefficient will increase scanning a UHE-$\nu$ candidate event as compared to a UHECR event because our model treats incoherent radiation from an air-shower's cascade as negligible, resulting in noise. Also to note is that when fine tuning the parameter space $[f_0,\gamma,\sigma_{\rm t,1},\sigma_{\rm t,2},\Delta t]$ in Sec. \ref{sec:recon} the code found in HH2026 \cite{hansonnoyearcomplex-ae0} used to maximize $\rho$ is capable of computing through individual RF channel responses not just the CSW. As such it is possible to inference where the Askaryan radiation was most coherent relative to the detector by mapping the path of $\rho$ from greatest to least, if one knows where the RF channels are located and how they are numbered in raw data files. This would be a key indicator for a UHE-$\nu$ if the radiation is most coherent in the most sub-surface RF channels, unlike for our air-shower induced events. \\
 
 \centering
 We would like to thank the ARA collaboration for sharing the UHECR candidate data, the calibration pulser data, and for many helpful comments.
